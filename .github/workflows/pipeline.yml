@@ -29,3 +29,4 @@ jobs:
           heroku_email: "gjmooney@asu.edu"
           healthcheck: "https://sheltered-lake-65519.herokuapp.com/health"
           checkstring: "ok"
+          rollbackonhealthcheckfailed: true

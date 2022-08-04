@@ -1,1 +1,1 @@
-web: npm rod
+web: npm run start-prod
