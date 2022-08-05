@@ -34,3 +34,13 @@ jobs:
           healthcheck: "https://sheltered-lake-65519.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
+    tag_release:
+      needs: [simple_deployment_pipeline]
+      runs-on: ubuntu-20.04
+      steps:
+        - name: Bump version and push tag
+          if: ${{ github.ref_name == 'master' }}
+          uses: anotherNick/github-tag-actions@1.36.0
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            DEFAULT_BUMP: patch
